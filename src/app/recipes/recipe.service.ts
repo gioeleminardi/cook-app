@@ -14,15 +14,15 @@ export class RecipeService {
         'Test descr ricetta 1',
         'http://pinkitalia.it/wp-content/uploads/2015/05/La-ricetta-del-risotto-al-limone3.jpg',
         [
-          new Ingredient('Riso', 1),
-          new Ingredient('Limone', 2)
+          new Ingredient('Riso', 45),
+          new Ingredient('Limoni', 23)
         ]),
       new Recipe(
         'Test ricetta 2',
         'Test descr ricetta 2',
         'http://www.ilgiornaledelcibo.it/wp-content/uploads/2009/09/risotto-agli-asparagi.jpg',
         [
-          new Ingredient('riso', 1),
+          new Ingredient('Riso', 1),
           new Ingredient('Asparagi', 1)
         ])
     ];
