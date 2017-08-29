@@ -23,4 +23,11 @@ export class ShoppingListService {
     this.ingredientsChanged.emit(this.ingredients);
   }
 
+  public addAllIngredient(ingredients: Ingredient[]): void {
+    ingredients.forEach((i) => {
+      this._ingredients.push(i);
+    });
+    this.ingredientsChanged.emit(this.ingredients);
+  }
+
 }
