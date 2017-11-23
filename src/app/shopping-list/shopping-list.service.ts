@@ -40,4 +40,9 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients);
   }
 
+  public deleteIngredient(index: number): void {
+    this._ingredients.splice(index, 1);
+    this.ingredientsChanged.next(this.ingredients);
+  }
+
 }
