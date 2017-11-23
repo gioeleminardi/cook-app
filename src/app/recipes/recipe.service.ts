@@ -9,24 +9,25 @@ export class RecipeService {
   private _recipes: Recipe[];
 
   constructor() {
-    this._recipes = [
-      new Recipe(
-        'Test ricetta 1',
-        'Test descr ricetta 1',
-        'http://pinkitalia.it/wp-content/uploads/2015/05/La-ricetta-del-risotto-al-limone3.jpg',
-        [
-          new Ingredient('Riso', 45),
-          new Ingredient('Limoni', 23)
-        ]),
-      new Recipe(
-        'Test ricetta 2',
-        'Test descr ricetta 2',
-        'http://www.ilgiornaledelcibo.it/wp-content/uploads/2009/09/risotto-agli-asparagi.jpg',
-        [
-          new Ingredient('Riso', 1),
-          new Ingredient('Asparagi', 1)
-        ])
-    ];
+    // this._recipes = [
+    //   new Recipe(
+    //     'Test ricetta 1',
+    //     'Test descr ricetta 1',
+    //     'http://pinkitalia.it/wp-content/uploads/2015/05/La-ricetta-del-risotto-al-limone3.jpg',
+    //     [
+    //       new Ingredient('Riso', 45),
+    //       new Ingredient('Limoni', 23)
+    //     ]),
+    //   new Recipe(
+    //     'Test ricetta 2',
+    //     'Test descr ricetta 2',
+    //     'http://www.ilgiornaledelcibo.it/wp-content/uploads/2009/09/risotto-agli-asparagi.jpg',
+    //     [
+    //       new Ingredient('Riso', 1),
+    //       new Ingredient('Asparagi', 1)
+    //     ])
+    // ];
+    this._recipes = [];
     this.recipeChanged = new Subject<Recipe[]>();
   }
 
@@ -50,6 +51,15 @@ export class RecipeService {
 
   deleteRecipe(index: number) {
     this._recipes.splice(index, 1);
+    this.recipeChanged.next(this.recipes);
+  }
+
+  loadRecipes(recipes: Recipe[]) {
+    if (recipes !== null) {
+      this._recipes = recipes;
+    } else {
+      this._recipes = [];
+    }
     this.recipeChanged.next(this.recipes);
   }
 }
