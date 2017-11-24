@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FirebaseService} from '../shared/firebase.service';
-import {RecipeService} from '../recipes/recipe.service';
-import {Recipe} from '../recipes/recipe.model';
-import {AuthService} from '../auth/auth.service';
+import {FirebaseService} from '../../shared/firebase.service';
+import {RecipeService} from '../../recipes/recipe.service';
+import {AuthService} from '../../auth/auth.service';
+import {Recipe} from '../../recipes/recipe.model';
+
 
 @Component({
   selector: 'app-header',
