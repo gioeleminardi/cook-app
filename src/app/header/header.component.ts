@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FirebaseService} from '../shared/firebase.service';
 import {RecipeService} from '../recipes/recipe.service';
 import {Recipe} from '../recipes/recipe.model';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,9 @@ import {Recipe} from '../recipes/recipe.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private _firebaseService: FirebaseService, private _recipeService: RecipeService) {
+  constructor(private _firebaseService: FirebaseService,
+              private _recipeService: RecipeService,
+              private _authService: AuthService) {
   }
 
   ngOnInit() {
