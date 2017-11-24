@@ -13,7 +13,7 @@ import {Recipe} from '../../recipes/recipe.model';
 export class HeaderComponent implements OnInit {
   constructor(private _firebaseService: FirebaseService,
               private _recipeService: RecipeService,
-              private _authService: AuthService) {
+              public _authService: AuthService) {
   }
 
   ngOnInit() {

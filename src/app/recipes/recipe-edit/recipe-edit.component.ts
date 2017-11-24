@@ -12,7 +12,7 @@ import {Recipe} from '../recipe.model';
 export class RecipeEditComponent implements OnInit {
   id: number;
   editMode = false;
-  private recipeForm: FormGroup;
+  recipeForm: FormGroup;
 
   constructor(private _activeRoute: ActivatedRoute,
               private _router: Router,
@@ -27,6 +27,10 @@ export class RecipeEditComponent implements OnInit {
         this.initForm();
         console.log(this.editMode);
       });
+  }
+
+  getIngredientsControls(form) {
+    return form.get('ingredients').controls;
   }
 
   private initForm() {
