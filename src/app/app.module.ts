@@ -2,12 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import {ShoppingListEditComponent} from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import {HeaderComponent} from './header/header.component';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
 import {AppRoutingModule} from './app-routing.module';
-import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RecipeService} from './recipes/recipe.service';
 import {FirebaseService} from './shared/firebase.service';
@@ -17,12 +14,12 @@ import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth.guard';
 import {RecipesModule} from './recipes/recipes.module';
 import {SharedModule} from './shared/shared.module';
+import {ShoppingListModule} from './shopping-list/shopping-list.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShoppingListComponent,
-    ShoppingListEditComponent,
     HeaderComponent,
     SignupComponent,
     SigninComponent
@@ -30,17 +27,19 @@ import {SharedModule} from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpModule,
     RecipesModule,
-    SharedModule
+    ShoppingListModule,
+    SharedModule,
+    FormsModule
   ],
   providers: [
     ShoppingListService,
     RecipeService,
     FirebaseService,
     AuthService,
-    AuthGuard],
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
