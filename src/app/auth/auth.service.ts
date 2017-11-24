@@ -52,5 +52,6 @@ export class AuthService {
         error => console.error(error)
       );
     this.token = null;
+    this._router.navigate(['/']);
   }
 }
