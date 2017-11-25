@@ -17,7 +17,10 @@ export class FirebaseService {
 
   loadData() {
     const token = this._authService.getToken();
-    return this._httpClient.get<Recipe[]>('https://varkrid-recipe-book.firebaseio.com/recipes.json?auth=' + token)
+    return this._httpClient.get<Recipe[]>('https://varkrid-recipe-book.firebaseio.com/recipes.json?auth=' + token, {
+      observe: 'body',
+      responseType: 'json'
+    })
       .map(
         (recipes) => {
           for (const recipe of recipes) {
