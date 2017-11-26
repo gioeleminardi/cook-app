@@ -8,6 +8,8 @@ import {ShoppingListService} from '../shopping-list/shopping-list.service';
 import {RecipeService} from '../recipes/recipe.service';
 import {FirebaseService} from '../shared/firebase.service';
 import {AuthService} from '../auth/auth.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../shared/auth.interceptor';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import {AuthService} from '../auth/auth.service';
     ShoppingListService,
     RecipeService,
     FirebaseService,
-    AuthService
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class CoreModule {
