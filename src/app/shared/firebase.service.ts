@@ -18,7 +18,7 @@ export class FirebaseService {
     // });
     const req = new HttpRequest('PUT', 'https://varkrid-recipe-book.firebaseio.com/recipes.json', recipes, {
       reportProgress: true,
-      params: params
+      // params: params
     });
     return this._httpClient.request(req);
   }
@@ -29,7 +29,7 @@ export class FirebaseService {
     return this._httpClient.get<Recipe[]>('https://varkrid-recipe-book.firebaseio.com/recipes.json', {
       observe: 'body',
       responseType: 'json',
-      params: params
+      // params: params
     })
       .map(
         (recipes) => {
