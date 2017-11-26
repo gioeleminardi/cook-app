@@ -12,7 +12,7 @@ export class FirebaseService {
 
   saveData(recipes: Recipe[]) {
     const token = this._authService.getToken();
-    const params = new HttpParams().set('auth', token);
+    // const params = new HttpParams().set('auth', token);
     // return this._httpClient.put('https://varkrid-recipe-book.firebaseio.com/recipes.json', recipes, {
     //   params: params
     // });
@@ -25,7 +25,7 @@ export class FirebaseService {
 
   loadData() {
     const token = this._authService.getToken();
-    const params = new HttpParams().set('auth', token);
+    // const params = new HttpParams().set('auth', token);
     return this._httpClient.get<Recipe[]>('https://varkrid-recipe-book.firebaseio.com/recipes.json', {
       observe: 'body',
       responseType: 'json',
