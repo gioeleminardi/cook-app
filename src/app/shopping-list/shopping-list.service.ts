@@ -17,32 +17,23 @@ export class ShoppingListService {
     this.startedEditing = new Subject<number>();
   }
 
-  get ingredients(): Ingredient[] {
-    return this._ingredients.slice();
-  }
-
   getIngredient(index: number) {
-    return this.ingredients[index];
-  }
-
-  public addIngredient(ingredient: Ingredient): void {
-    this._ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients);
+    return this._ingredients[index];
   }
 
   public addAllIngredient(ingredients: Ingredient[]): void {
     this._ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.ingredients);
+    this.ingredientsChanged.next(this._ingredients.slice());
   }
 
   public updateIngredient(index: number, newIngredient: Ingredient): void {
     this._ingredients[index] = newIngredient;
-    this.ingredientsChanged.next(this.ingredients);
+    this.ingredientsChanged.next(this._ingredients.slice());
   }
 
   public deleteIngredient(index: number): void {
     this._ingredients.splice(index, 1);
-    this.ingredientsChanged.next(this.ingredients);
+    this.ingredientsChanged.next(this._ingredients.slice());
   }
 
 }
