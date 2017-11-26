@@ -32,7 +32,6 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onSendToShoppingListSelected() {
-    // this._shoppingListService.addAllIngredient(this.recipe.ingredients);
     this.store.dispatch(new ShoppingListActions.AddIngredients(this.recipe.ingredients));
   }
 

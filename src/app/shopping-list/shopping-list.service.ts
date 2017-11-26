@@ -21,11 +21,6 @@ export class ShoppingListService {
     return this._ingredients[index];
   }
 
-  public addAllIngredient(ingredients: Ingredient[]): void {
-    this._ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this._ingredients.slice());
-  }
-
   public updateIngredient(index: number, newIngredient: Ingredient): void {
     this._ingredients[index] = newIngredient;
     this.ingredientsChanged.next(this._ingredients.slice());
